@@ -10,7 +10,7 @@ function transformData(transform){
     var data = dia+mes+ano;
     return data;
 }
-    // Funções que retornam a data de CI/CO.
+// Funções que retornam a data de CI/CO.
     var dataEntrada = transformData($checkIn);
     var dataSaida = transformData($checkOut);
 
