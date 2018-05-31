@@ -23,7 +23,7 @@
                                     <i class="far fa-calendar-plus"></i>
                                 </label> 
                             </div>
-                            <input id="check-in" type="date" class="form-control" placeholder="Entrada:" onchange="GetDateChange()"></input>
+                            <input id="check-in" type="date" class="form-control" placeholder="Entrada:"></input>
                           </div>
                     </div>
              <div class="col-md-2">
@@ -33,7 +33,7 @@
                                     <i class="far fa-calendar-minus"></i>
                                 </label> 
                             </div>
-                            <input id="check-out" type="date" data-date="" class="form-control" placeholder="Saida:" onchange="GetDateChange()"></input>
+                            <input id="check-out" type="date" data-date="" class="form-control" placeholder="Saida:"></input>
                           </div>
              </div>
             <div class="col-md-2">
@@ -43,7 +43,7 @@
                       <i class="fas fa-user"></i>
                     </label>
                 </div>
-                <select class="custom-select" id="inputadulto" onchange="GetDateChange()">
+                <select class="custom-select" id="inputadulto">
                   <option value="1" selected>Adultos</option>
                   <option value="1">1</option>
                   <option value="2">2</option>
@@ -65,7 +65,7 @@
                                     <i class="fas fa-child equalsize"></i>
                                 </label>
                             </div>
-                            <select class="custom-select" id="inputkids" onchange="GetDateChange()">
+                            <select class="custom-select" id="inputkids"x>
                               <option value="1" selected>Crianças</option>
                               <option value="1">1</option>
                               <option value="2">2</option>
@@ -87,11 +87,11 @@
                                     <i class="fas fa-ticket-alt equalsizet"></i>
                                 </label> 
                             </div>
-                            <input type="text" id="promocode" class="form-control" placeholder="Código promocional" onchange="GetDateChange()"></input>
+                            <input type="text" id="promocode" class="form-control" placeholder="Código promocional"></input>
                           </div>
             </div>
             <div class="col-md-2">
-                    <a href="#" class="btn btn-dark btn-lg justify-content-center" role="button" aria-disabled="true">BUSCAR</a>
+                    <a href="#" class="btn btn-dark btn-lg justify-content-center" role="button" aria-disabled="true" onclick="GetDateChange()">BUSCAR</a>
             </div>
         </div>
     </div>   
