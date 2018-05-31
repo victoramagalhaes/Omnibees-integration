@@ -28,7 +28,7 @@ function transformData(transform){
     var nAdultos = "ad="+adultosSelecionados;
     var kidsAge = "ag="+"5"
     var nKids = "ch="+kidsSelecionados;+"5";
-    var apiInt = "&"+CheckIn+"&"+CheckOut+"&"+codpromo+"&"+nAdultos+"&"+kidsAge;
+    var apiInt = "&"+CheckIn+"&"+CheckOut+"&"+codpromo+"&"+nAdultos+"&"+nKids;
     // console.log(apiInt)
     window.location.href="https://myreservations.omnibees.com/default.aspx?q=6655&NRooms=1&"+apiInt;""
 }
