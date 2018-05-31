@@ -20,4 +20,6 @@ function transformData(transform){
 // Crianças Select.
     var $kids = document.getElementById("inputkids");
     var kidsSelecionados = $kids.options[$kids.selectedIndex].value;
+// Promo Code.
+    var $promocode = document.getElementById("promocode").value;
 }
