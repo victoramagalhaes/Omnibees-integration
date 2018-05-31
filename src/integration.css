@@ -3,7 +3,33 @@ input[type=date]::-webkit-inner-spin-button {
     -webkit-appearance: none;
     margin: 0;
 }
+input[type="date"]:before {
+    content: attr(placeholder) !important;
+    color: #aaa;
+    margin-right: 0.5em;
+  }
 
 input[type=date] {
     -moz-appearance:textfield;
+}
+.textoalign{
+    margin-top:8px;
+    text-align:center;
+}
+.pdfluid{
+    margin-top:15px;
+}
+.bgdatarja{
+    background-color:rgb(246, 246, 246);
+    padding:10px;
+}
+.btn{
+    width:100%;
+    margin-top:-5px;
+}
+.equalsize{
+    font-size:20px;
+}
+.equalsizet{
+    font-size:14px;
 }
