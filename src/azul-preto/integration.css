@@ -6,12 +6,18 @@
     margin-top:15px;
 }
 .bgdatarja{
-    background-color:rgb(246, 246, 246);
+    background-color:#009fde;
     padding:10px;
 }
 .btn{
     width:100%;
     margin-top:-5px;
+    background-color:yellow;
+    color:black;
+}
+.btn:hover{
+    background-color:rgb(255, 255, 228);
+    color:black;
 }
 .equalsize{
     font-size:20px;
