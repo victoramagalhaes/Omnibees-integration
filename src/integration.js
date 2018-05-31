@@ -1,12 +1,56 @@
+// Opções do Datepicker Jquery.
+$( function() {
+    var dateFormat = "dd/mm/yy",
+      checkin = $( "#checkin" )
+        .datepicker({
+          defaultDate: "+1w",
+          changeMonth: true,
+          numberOfMonths: 1,
+          dateFormat: 'dd/mm/yy',
+          dayNames: ['Domingo','Segunda','Terça','Quarta','Quinta','Sexta','Sábado','Domingo'],
+          dayNamesMin: ['D','S','T','Q','Q','S','S','D'],
+          dayNamesShort: ['Dom','Seg','Ter','Qua','Qui','Sex','Sáb','Dom'],
+          monthNames: ['Janeiro','Fevereiro','Março','Abril','Maio','Junho','Julho','Agosto','Setembro','Outubro','Novembro','Dezembro'],
+          monthNamesShort: ['Jan','Fev','Mar','Abr','Mai','Jun','Jul','Ago','Set','Out','Nov','Dez']
+        })
+        .on( "change", function() {
+          checkout.datepicker( "option", "minDate", getDate( this ) );
+        }),
+      checkout = $( "#checkout" ).datepicker({
+        defaultDate: "+1w",
+        changeMonth: true,
+        numberOfMonths: 1,
+        dateFormat: 'dd/mm/yy',
+        dayNames: ['Domingo','Segunda','Terça','Quarta','Quinta','Sexta','Sábado','Domingo'],
+        dayNamesMin: ['D','S','T','Q','Q','S','S','D'],
+        dayNamesShort: ['Dom','Seg','Ter','Qua','Qui','Sex','Sáb','Dom'],
+        monthNames: ['Janeiro','Fevereiro','Março','Abril','Maio','Junho','Julho','Agosto','Setembro','Outubro','Novembro','Dezembro'],
+        monthNamesShort: ['Jan','Fev','Mar','Abr','Mai','Jun','Jul','Ago','Set','Out','Nov','Dez']
+      })
+      .on( "change", function() {
+        checkin.datepicker( "option", "maxDate", getDate( this ) );
+      });
+ 
+    function getDate( element ) {
+      var date;
+      try {
+        date = $.datepicker.parseDate( dateFormat, element.value );
+      } catch( error ) {
+        date = null;
+      }
+ 
+      return date;
+    }
+  } );
 // Função para executar a cada mudança.
 function GetDateChange(){
-    var $checkIn = document.getElementById("check-in").value;
-    var $checkOut = document.getElementById("check-out").value;
+    var $checkIn = document.getElementById("checkin").value;
+    var $checkOut = document.getElementById("checkout").value;
 // Retornando data no formato da API.
 function transformData(transform){
-    var dia = transform.slice(8,11);
-    var mes = transform.slice(5,7);
-    var ano = transform.slice(0,4);
+    var dia = transform.slice(0,2);
+    var mes = transform.slice(3,5);
+    var ano = transform.slice(6,10);
     var data = dia+mes+ano;
     return data;
 }
