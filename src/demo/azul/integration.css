@@ -12,11 +12,11 @@
 .btn{
     width:100%;
     margin-top:-5px;
-    background-color:yellow;
-    color:black;
+    background-color:#ffda23;
+    color:#009fde;
 }
 .btn:hover{
-    background-color:rgb(255, 255, 228);
+    background-color:rgb(250, 250, 130);
     color:black;
 }
 .equalsize{
