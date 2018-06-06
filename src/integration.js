@@ -1,8 +1,15 @@
 // Opções do Datepicker Jquery.
-$( function() {
+jQuery(document).ready(function($) {
+  $( function() {
     var dateFormat = "dd/mm/yy",
       checkin = $( "#checkin" )
         .datepicker({
+          onSelect: function () {
+            var toDate = $(this).datepicker('getDate');
+            toDate.setDate(toDate.getDate()+1)
+            $("#checkout").datepicker("setDate", toDate);
+        },
+          minDate:0,
           defaultDate: "+1w",
           changeMonth: true,
           numberOfMonths: 1,
@@ -16,7 +23,8 @@ $( function() {
         .on( "change", function() {
           checkout.datepicker( "option", "minDate", getDate( this ) );
         }),
-      checkout = $( "#checkout" ).datepicker({
+        checkout = $( "#checkout" ).datepicker({
+        minDate:1,
         defaultDate: "+1w",
         changeMonth: true,
         numberOfMonths: 1,
@@ -31,17 +39,31 @@ $( function() {
         checkin.datepicker( "option", "maxDate", getDate( this ) );
       });
  
-    function getDate( element ) {
-      var date;
-      try {
-        date = $.datepicker.parseDate( dateFormat, element.value );
-      } catch( error ) {
-        date = null;
+      function getDate( element ) {
+        var date;
+        try {
+          date = $.datepicker.parseDate( dateFormat, element.value );
+        } catch( error ) {
+          date = null;
+        }
+        return date;
       }
- 
-      return date;
-    }
   } );
+});
+// Quando o valor do Check In for alterado setar o numero de adultos default. 
+var $adultos = document.getElementById("inputadulto");
+function onChangeCheckIn($adultos){
+  setTimeout(function(){
+    $adultos.selectedIndex = 2;
+  },2000)
+}
+// Quando o valor do Check In for alterado setar o numero de crianças default.    
+var $kids = document.getElementById("inputkids");
+function onChangeCheckInKids($kids){
+  setTimeout(function(){
+    $kids.selectedIndex = 0;
+  },2000)
+} 
 // Função para executar a cada mudança.
 function GetDateChange(){
     var $checkIn = document.getElementById("checkin").value;
@@ -72,7 +94,8 @@ function transformData(transform){
     var nAdultos = "ad="+adultosSelecionados;
     var kidsAge = "ag="+"5"
     var nKids = "ch="+kidsSelecionados;+"5";
-    var apiInt = "&"+CheckIn+"&"+CheckOut+"&"+codpromo+"&"+nAdultos+"&"+nKids;
+    var apiInt = "&NRooms=1&"+CheckIn+"&"+CheckOut+"&"+codpromo+"&"+nAdultos+"&"+nKids;
+    var yourid = "6655";
     // console.log(apiInt)
-    window.location.href="https://myreservations.omnibees.com/default.aspx?q=6655&NRooms=1"+apiInt;""
+    window.location.href="https://myreservations.omnibees.com/default.aspx?q="+ yourid +apiInt;
 }
